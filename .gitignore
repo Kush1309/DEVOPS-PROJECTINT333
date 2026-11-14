@@ -1,0 +1,30 @@
+# Sensitive Cloud Credentials & Keys
+*.pem
+*.ppk
+*.key
+id_rsa
+id_rsa.pub
+
+# Terraform State and Cache
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Office / OS Temporary Lock Files
+~$*.pptx
+~$*.docx
+.DS_Store
+Thumbs.db
+
+# Python bytecode and virtualenvs
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
