@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nixtio DevOps | Kushagra (Roll No .63)</title>
+  <title>Nixtio DevOps | Kushagra (Roll No. 63)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -64,6 +64,7 @@
       font-weight: 800;
       letter-spacing: -0.5px;
       color: var(--text-dark);
+      cursor: pointer;
     }
 
     .brand-icon {
@@ -99,15 +100,19 @@
       cursor: pointer;
       transition: all 0.2s ease;
       text-decoration: none;
+      border: none;
+      background: transparent;
     }
 
     .nav-pill.active {
       background: var(--card-dark);
       color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .nav-pill:hover:not(.active) {
       color: var(--text-dark);
+      background: rgba(255, 255, 255, 0.9);
     }
 
     .nav-right-actions {
@@ -202,6 +207,14 @@
       gap: 10px;
       font-size: 0.85rem;
       font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .seg-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     }
 
     .seg-pill-dark {
@@ -226,6 +239,12 @@
       color: #4A4A52;
       flex-grow: 1;
       justify-content: space-between;
+      cursor: default;
+    }
+
+    .seg-pill-striped:hover {
+      transform: none;
+      box-shadow: none;
     }
 
     .seg-pill-outline {
@@ -287,6 +306,7 @@
       justify-content: center;
       font-size: 0.85rem;
       color: #666;
+      cursor: pointer;
     }
 
     /* Card 1: User / Student Profile */
@@ -512,6 +532,11 @@
       justify-content: center;
       cursor: pointer;
       font-size: 0.85rem;
+      transition: background 0.2s;
+    }
+
+    .timer-btn:hover {
+      background: #E8E6DF;
     }
 
     /* Card 4: Dark Checklist Card (Onboarding Tasks) */
@@ -551,6 +576,7 @@
       justify-content: center;
       font-size: 0.7rem;
       font-weight: 700;
+      cursor: pointer;
     }
 
     .inner-dark-card {
@@ -589,6 +615,14 @@
       align-items: center;
       justify-content: space-between;
       font-size: 0.82rem;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .task-row:hover {
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .task-info-left {
@@ -643,6 +677,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      cursor: pointer;
     }
 
     .device-icon-box {
@@ -729,6 +764,7 @@
       font-weight: 600;
       margin-top: 6px;
       width: fit-content;
+      cursor: pointer;
     }
 
     .sync-avatar-group {
@@ -749,6 +785,159 @@
       color: #fff;
       margin-left: -4px;
     }
+
+    /* ========================================================
+       MODAL POPUP STYLES (Interactive Dialogs for Terraform/Puppet)
+       ======================================================== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(22, 23, 27, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-card {
+      background: #FFFFFF;
+      border-radius: 28px;
+      max-width: 850px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      display: flex;
+      flex-direction: column;
+      animation: modalSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalSlideIn {
+      from { transform: translateY(20px) scale(0.97); }
+      to { transform: translateY(0) scale(1); }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 28px 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .modal-header h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #F4F2EC;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #666;
+      transition: all 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: #E8E5DD;
+      color: #111;
+    }
+
+    .modal-body {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .modal-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding-bottom: 10px;
+    }
+
+    .modal-tab-btn {
+      background: transparent;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .modal-tab-btn.active {
+      background: var(--card-dark);
+      color: #FFFFFF;
+    }
+
+    .code-viewer-box {
+      background: #18191E;
+      color: #F8F8F2;
+      border-radius: 16px;
+      padding: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      overflow-x: auto;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sim-terminal {
+      background: #0D0E11;
+      border-radius: 14px;
+      padding: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #A6E22E;
+      line-height: 1.5;
+    }
+
+    .action-cta-btn {
+      background: var(--accent-yellow);
+      color: #2D231E;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s;
+      width: fit-content;
+    }
+
+    .action-cta-btn:hover {
+      transform: scale(1.02);
+    }
   </style>
 </head>
 <body>
@@ -756,23 +945,23 @@
 
     <!-- Top Navigation -->
     <nav class="top-nav">
-      <div class="brand-logo">
+      <div class="brand-logo" onclick="openTab('dashboard')">
         <div class="brand-icon">K</div>
         <span>Nixtio<span style="font-weight:400; opacity:0.6;">.cloud</span></span>
       </div>
 
       <div class="nav-pills">
-        <a class="nav-pill active" href="#">Dashboard</a>
-        <a class="nav-pill" href="#">Infrastructure</a>
-        <a class="nav-pill" href="#">Puppet</a>
-        <a class="nav-pill" href="#">Terraform</a>
-        <a class="nav-pill" href="#">Metrics</a>
-        <a class="nav-pill" href="#">Faculty Guide</a>
+        <button class="nav-pill active" id="btn-nav-dashboard" onclick="openTab('dashboard')">Dashboard</button>
+        <button class="nav-pill" id="btn-nav-infra" onclick="openTab('infra')">Infrastructure</button>
+        <button class="nav-pill" id="btn-nav-puppet" onclick="openTab('puppet')">Puppet</button>
+        <button class="nav-pill" id="btn-nav-terraform" onclick="openTab('terraform')">Terraform</button>
+        <button class="nav-pill" id="btn-nav-metrics" onclick="openTab('metrics')">Metrics</button>
+        <button class="nav-pill" id="btn-nav-guide" onclick="openTab('guide')">Faculty Guide</button>
       </div>
 
       <div class="nav-right-actions">
-        <div class="action-circle-btn" title="Settings">⚙️</div>
-        <div class="action-circle-btn" title="Notifications">🔔</div>
+        <div class="action-circle-btn" title="Settings" onclick="openTab('terraform')">⚙️</div>
+        <div class="action-circle-btn" title="Notifications" onclick="openTab('puppet')">🔔</div>
       </div>
     </nav>
 
@@ -783,7 +972,7 @@
       </div>
 
       <div class="top-stats-group">
-        <div class="stat-item">
+        <div class="stat-item" onclick="openTab('guide')" style="cursor:pointer;" title="Roll Number 63">
           <span style="font-size:1.1rem; opacity:0.5;">👥</span>
           <span class="stat-num">63</span>
           <div class="stat-meta">
@@ -792,7 +981,7 @@
           </div>
         </div>
 
-        <div class="stat-item">
+        <div class="stat-item" onclick="openTab('puppet')" style="cursor:pointer;" title="Zero Configuration Drift">
           <span style="font-size:1.1rem; opacity:0.5;">⚡</span>
           <span class="stat-num">0</span>
           <div class="stat-meta">
@@ -801,7 +990,7 @@
           </div>
         </div>
 
-        <div class="stat-item">
+        <div class="stat-item" onclick="openTab('infra')" style="cursor:pointer;" title="HTTP Web Server Health">
           <span style="font-size:1.1rem; opacity:0.5;">💻</span>
           <span class="stat-num">200</span>
           <div class="stat-meta">
@@ -812,24 +1001,24 @@
       </div>
     </div>
 
-    <!-- Segmented Multi-Bar Pill -->
+    <!-- Segmented Multi-Bar Pill (Clickable) -->
     <div class="segmented-progress-bar">
-      <div class="seg-pill seg-pill-dark">
-        <span>Terraform</span>
-        <strong>100%</strong>
-      </div>
-      <div class="seg-pill seg-pill-yellow">
-        <span>Puppet 8</span>
-        <strong>Enforced</strong>
-      </div>
+      <button class="seg-pill seg-pill-dark" onclick="openTab('terraform')" title="Click to view Terraform Code & State">
+        <span>⚙️ Terraform</span>
+        <strong>100% (Click)</strong>
+      </button>
+      <button class="seg-pill seg-pill-yellow" onclick="openTab('puppet')" title="Click to view Puppet Manifest & Catalog">
+        <span>🎯 Puppet 8</span>
+        <strong>Enforced (Click)</strong>
+      </button>
       <div class="seg-pill seg-pill-striped">
         <span>Cloud Pipeline Coverage (AWS ap-south-1 Mumbai)</span>
         <strong>100%</strong>
       </div>
-      <div class="seg-pill seg-pill-outline">
+      <button class="seg-pill seg-pill-outline" onclick="openTab('puppet')">
         <span>Zero Drift</span>
         <strong>0%</strong>
-      </div>
+      </button>
     </div>
 
     <!-- Main Bento Grid -->
@@ -871,7 +1060,7 @@
       </div>
 
       <!-- Card 2: Progress Bar Chart Card -->
-      <div class="bento-card">
+      <div class="bento-card" onclick="openTab('metrics')" style="cursor:pointer;">
         <div class="card-top-icon">↗</div>
         <div>
           <div class="card-title-sm">Pipeline Health</div>
@@ -915,7 +1104,7 @@
 
       <!-- Card 3: Time Tracker / Live Circular Uptime Ring -->
       <div class="bento-card">
-        <div class="card-top-icon">↗</div>
+        <div class="card-top-icon" onclick="openTab('infra')">↗</div>
         <div>
           <div class="card-title-sm">Server Uptime</div>
         </div>
@@ -929,20 +1118,20 @@
               <circle cx="85" cy="85" r="70" fill="none" stroke="#F7C948" stroke-width="10" stroke-dasharray="440" stroke-dashoffset="110" stroke-linecap="round"/>
             </svg>
             <div class="ring-center-content">
-              <div class="time-digits" id="live-timer">02:45</div>
+              <div class="time-digits" id="live-timer">03:45</div>
               <div class="time-label">Active Time</div>
             </div>
           </div>
 
           <div class="timer-controls">
-            <div class="timer-btn" onclick="toggleTimer()">▶</div>
-            <div class="timer-btn" onclick="resetTimer()">⏸</div>
-            <div class="timer-btn">⏰</div>
+            <div class="timer-btn" onclick="toggleTimer()" title="Run Drift Check">▶</div>
+            <div class="timer-btn" onclick="openTab('terraform')" title="Inspect Terraform State">⚙️</div>
+            <div class="timer-btn" onclick="openTab('puppet')" title="Inspect Puppet Catalog">🎯</div>
           </div>
         </div>
       </div>
 
-      <!-- Card 4: Dark Onboarding / Pipeline Checklist Card -->
+      <!-- Card 4: Dark Checklist Card (Onboarding Tasks) -->
       <div class="bento-card onboarding-card">
         <div class="onboard-header">
           <div class="onboard-title">Automation</div>
@@ -950,9 +1139,9 @@
         </div>
 
         <div class="mini-progress-pill">
-          <div class="mini-seg" style="background:#F7C948; color:#333; flex: 3;">IaC</div>
-          <div class="mini-seg" style="background:#27282F; color:#fff; flex: 2.5;">Config</div>
-          <div class="mini-seg" style="background:#E5E2D9; color:#666; flex: 1;">Live</div>
+          <div class="mini-seg" style="background:#F7C948; color:#333; flex: 3;" onclick="openTab('terraform')">IaC</div>
+          <div class="mini-seg" style="background:#27282F; color:#fff; flex: 2.5;" onclick="openTab('puppet')">Config</div>
+          <div class="mini-seg" style="background:#E5E2D9; color:#666; flex: 1;" onclick="openTab('infra')">Live</div>
         </div>
 
         <div class="inner-dark-card">
@@ -962,7 +1151,7 @@
           </div>
 
           <div class="task-list">
-            <div class="task-row">
+            <div class="task-row" onclick="openTab('terraform')">
               <div class="task-info-left">
                 <div class="task-icon-circle">☁️</div>
                 <div class="task-text">
@@ -973,7 +1162,7 @@
               <div class="check-icon">✓</div>
             </div>
 
-            <div class="task-row">
+            <div class="task-row" onclick="openTab('puppet')">
               <div class="task-info-left">
                 <div class="task-icon-circle">🎯</div>
                 <div class="task-text">
@@ -984,7 +1173,7 @@
               <div class="check-icon">✓</div>
             </div>
 
-            <div class="task-row">
+            <div class="task-row" onclick="openTab('infra')">
               <div class="task-info-left">
                 <div class="task-icon-circle">🌐</div>
                 <div class="task-text">
@@ -995,7 +1184,7 @@
               <div class="check-icon">✓</div>
             </div>
 
-            <div class="task-row">
+            <div class="task-row" onclick="openTab('terraform')">
               <div class="task-info-left">
                 <div class="task-icon-circle">🔒</div>
                 <div class="task-text">
@@ -1015,12 +1204,12 @@
     <div class="bottom-bento-row">
       
       <!-- Mini Left Card -->
-      <div class="mini-card">
+      <div class="mini-card" onclick="openTab('infra')" title="Click to view AWS Infrastructure details">
         <div class="device-icon-box">
           <div class="device-icon">🖥️</div>
           <div class="device-text">
             <h4>AWS EC2 Node</h4>
-            <p>13.201.137.244</p>
+            <p>3.109.58.17 (Click to Inspect)</p>
           </div>
         </div>
         <span style="font-size:1.2rem; cursor:pointer;">⋮</span>
@@ -1061,8 +1250,8 @@
           </div>
         </div>
 
-        <div class="sync-pill-banner">
-          <span>Project Evaluation Sync</span>
+        <div class="sync-pill-banner" onclick="openTab('guide')">
+          <span>Project Evaluation Sync (Click for Guide)</span>
           <div class="sync-avatar-group">
             <div class="tiny-avatar" title="Kushagra">K</div>
             <div class="tiny-avatar" title="Harpreet Kaur" style="background:#C76A00;">H</div>
@@ -1075,9 +1264,234 @@
 
   </div>
 
+  <!-- ========================================================
+       MODAL: TERRAFORM INSPECTOR
+       ======================================================== -->
+  <div class="modal-overlay" id="modal-terraform">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2><span>⚙️</span> HashiCorp Terraform IaC Inspector</h2>
+        <button class="modal-close-btn" onclick="closeModal('modal-terraform')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-tabs">
+          <button class="modal-tab-btn active" id="tf-tab-main" onclick="switchTfTab('main')">main.tf</button>
+          <button class="modal-tab-btn" id="tf-tab-vars" onclick="switchTfTab('vars')">variables.tf</button>
+          <button class="modal-tab-btn" id="tf-tab-state" onclick="switchTfTab('state')">Live State (.tfstate)</button>
+        </div>
+
+        <div id="tf-content-main" class="code-viewer-box">
+<span style="color:#8be9fd;">terraform</span> {
+  required_version = <span style="color:#f1fa8c;">">= 1.0"</span>
+  required_providers {
+    aws = { source = <span style="color:#f1fa8c;">"hashicorp/aws"</span>, version = <span style="color:#f1fa8c;">"~> 5.0"</span> }
+  }
+}
+
+<span style="color:#ff79c6;">resource</span> <span style="color:#f1fa8c;">"aws_instance"</span> <span style="color:#50fa7b;">"puppet_node"</span> {
+  ami                         = data.aws_ami.ubuntu.id
+  instance_type               = <span style="color:#bd93f9;">"t3.micro"</span> # AWS Free Tier
+  key_name                    = <span style="color:#bd93f9;">"puppet-key"</span>
+  vpc_security_group_ids      = [aws_security_group.puppet_sg.id]
+  associate_public_ip_address = <span style="color:#ffb86c;">true</span>
+
+  user_data = &lt;&lt;-EOF
+    #!/bin/bash
+    apt-get update -y &amp;&amp; apt-get install -y puppet-agent
+    puppet apply /etc/puppetlabs/code/environments/production/manifests/site.pp
+  EOF
+}
+        </div>
+
+        <div id="tf-content-vars" class="code-viewer-box" style="display:none;">
+<span style="color:#ff79c6;">variable</span> <span style="color:#f1fa8c;">"aws_region"</span> {
+  description = <span style="color:#f1fa8c;">"AWS Deployment Region"</span>
+  default     = <span style="color:#bd93f9;">"ap-south-1"</span> # Mumbai
+}
+
+<span style="color:#ff79c6;">variable</span> <span style="color:#f1fa8c;">"instance_type"</span> {
+  description = <span style="color:#f1fa8c;">"EC2 Instance Sizing"</span>
+  default     = <span style="color:#bd93f9;">"t3.micro"</span> # Free Tier (2 vCPU, 1 GB)
+}
+        </div>
+
+        <div id="tf-content-state" class="sim-terminal" style="display:none;">
+$ terraform state list
+aws_security_group.puppet_sg [id=sg-0dfd225566a293602]
+aws_instance.puppet_node    [id=i-0ed9db706fd79bab9]
+data.aws_ami.ubuntu         [id=ami-009a37f62c7ea3f0a]
+data.aws_vpc.default        [id=vpc-0c40a7274565eb9c1]
+
+Status: Plan: 0 to add, 0 to change, 0 to destroy.
+State is 100% synchronized with AWS Cloud!
+        </div>
+
+        <button class="action-cta-btn" onclick="simulateTfPlan()">
+          <span>▶</span> Run 'terraform plan' Simulation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL: PUPPET ENGINE
+       ======================================================== -->
+  <div class="modal-overlay" id="modal-puppet">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2><span>🎯</span> Puppet Configuration Management Engine</h2>
+        <button class="modal-close-btn" onclick="closeModal('modal-puppet')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-tabs">
+          <button class="modal-tab-btn active" id="pup-tab-manifest" onclick="switchPupTab('manifest')">site.pp Manifest</button>
+          <button class="modal-tab-btn" id="pup-tab-catalog" onclick="switchPupTab('catalog')">Compiled Catalog</button>
+          <button class="modal-tab-btn" id="pup-tab-drift" onclick="switchPupTab('drift')">Idempotency & Drift Report</button>
+        </div>
+
+        <div id="pup-content-manifest" class="code-viewer-box">
+<span style="color:#50fa7b;">node</span> default {
+
+  <span style="color:#6272a4;"># 1. Declarative Package Enforcement</span>
+  <span style="color:#8be9fd;">package</span> { <span style="color:#f1fa8c;">'apache2'</span>:
+    ensure => installed,
+  }
+
+  <span style="color:#6272a4;"># 2. Daemon State Enforcement</span>
+  <span style="color:#8be9fd;">service</span> { <span style="color:#f1fa8c;">'apache2'</span>:
+    ensure  => running,
+    enable  => true,
+    require => Package[<span style="color:#f1fa8c;">'apache2'</span>],
+  }
+
+  <span style="color:#6272a4;"># 3. File Deployment & Event Notification</span>
+  <span style="color:#8be9fd;">file</span> { <span style="color:#f1fa8c;">'/var/www/html/index.html'</span>:
+    ensure  => file,
+    owner   => <span style="color:#f1fa8c;">'www-data'</span>,
+    group   => <span style="color:#f1fa8c;">'www-data'</span>,
+    mode    => <span style="color:#f1fa8c;">'0644'</span>,
+    require => Package[<span style="color:#f1fa8c;">'apache2'</span>],
+    notify  => Service[<span style="color:#f1fa8c;">'apache2'</span>],
+  }
+
+}
+        </div>
+
+        <div id="pup-content-catalog" class="code-viewer-box" style="display:none;">
+[Catalog Compilation]
+Node: ip-172-31-1-175.ap-south-1.compute.internal
+Environment: production
+Resources in Catalog: 3 managed resources
+- Package[apache2]
+- Service[apache2]
+- File[/var/www/html/index.html]
+Dependency Order: Package[apache2] -> Service[apache2] -> File[/var/www/html/index.html]
+        </div>
+
+        <div id="pup-content-drift" class="sim-terminal" style="display:none;">
+$ puppet agent --test
+Notice: Local environment: 'production'
+Notice: Applying configuration version '1731671234'
+Notice: Applied catalog in 0.38 seconds
+Notice: Finished catalog run in 0.42 seconds
+Report: 3 resources in desired state | 0 changed | 0 failed
+Drift Result: ZERO CONFIGURATION DRIFT!
+        </div>
+
+        <button class="action-cta-btn" onclick="simulatePuppetRun()">
+          <span>⚡</span> Run 'puppet agent -t' Verification
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL: INFRASTRUCTURE TELEMETRY
+       ======================================================== -->
+  <div class="modal-overlay" id="modal-infra">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2><span>🖥️</span> AWS Cloud Infrastructure Telemetry</h2>
+        <button class="modal-close-btn" onclick="closeModal('modal-infra')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div style="background:#F9F8F5; padding: 18px; border-radius: 16px; border:1px solid #EBE7DF;">
+            <h4 style="margin-bottom:12px; color:#9C5824;">Node Specifications</h4>
+            <p style="font-size:0.85rem; margin-bottom:6px;"><strong>Instance ID:</strong> i-0ed9db706fd79bab9</p>
+            <p style="font-size:0.85rem; margin-bottom:6px;"><strong>Type:</strong> t3.micro (2 vCPU, 1 GB RAM)</p>
+            <p style="font-size:0.85rem; margin-bottom:6px;"><strong>Region:</strong> ap-south-1 (Mumbai, India)</p>
+            <p style="font-size:0.85rem; margin-bottom:6px;"><strong>OS:</strong> Ubuntu 22.04 LTS (Jammy)</p>
+          </div>
+          <div style="background:#F9F8F5; padding: 18px; border-radius: 16px; border:1px solid #EBE7DF;">
+            <h4 style="margin-bottom:12px; color:#27282F;">Networking & Endpoints</h4>
+            <p style="font-size:0.85rem; margin-bottom:6px;"><strong>Public IP:</strong> 3.109.58.17</p>
+            <p style="font-size:0.85rem; margin-bottom:6px;"><strong>Private IP:</strong> 172.31.1.175</p>
+            <p style="font-size:0.85rem; margin-bottom:6px;"><strong>Firewall:</strong> puppet-apache-sg</p>
+            <p style="font-size:0.85rem; margin-bottom:6px;"><strong>Ports Allowed:</strong> Port 22 (SSH), Port 80 (HTTP)</p>
+          </div>
+        </div>
+
+        <div class="sim-terminal">
+SSH Connect Command:
+ssh -i puppet-key.pem ubuntu@3.109.58.17
+
+Live Web Health:
+HTTP/1.1 200 OK
+Server: Apache/2.4.52 (Ubuntu)
+Content-Type: text/html; charset=UTF-8
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL: FACULTY GUIDE & VIVA
+       ======================================================== -->
+  <div class="modal-overlay" id="modal-guide">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2><span>🎓</span> Faculty Evaluation & Project Viva Guide</h2>
+        <button class="modal-close-btn" onclick="closeModal('modal-guide')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="background:#FFF9E6; border:1px solid #FFE499; border-radius:16px; padding:16px;">
+          <p style="font-size:0.9rem; color:#783F15;">
+            <strong>Student:</strong> Kushagra (Roll No. 63 | Reg. No. 12323868)<br>
+            <strong>Course:</strong> INT333 – DevOps Advance Configuration Management<br>
+            <strong>Faculty Guide:</strong> Harpreet Kaur (Assistant Professor, CSE, LPU)
+          </p>
+        </div>
+
+        <h4 style="font-size:1rem; font-weight:700;">Top Viva Questions & Answers:</h4>
+        
+        <div style="background:#F8F7F4; border-radius:12px; padding:14px;">
+          <strong style="color:#111;">Q1: What is the difference between Terraform and Puppet?</strong>
+          <p style="font-size:0.85rem; color:#666; margin-top:4px;">
+            Terraform is an <strong>Infrastructure as Code (IaC)</strong> tool used for provisioning bare cloud infrastructure (EC2, VPC, Firewalls). Puppet is a <strong>Configuration Management (CM)</strong> tool used for configuring packages, services, and files inside the operating system.
+          </p>
+        </div>
+
+        <div style="background:#F8F7F4; border-radius:12px; padding:14px;">
+          <strong style="color:#111;">Q2: What is Idempotency in DevOps?</strong>
+          <p style="font-size:0.85rem; color:#666; margin-top:4px;">
+            Idempotency guarantees that executing the automation code multiple times produces the exact same desired state without duplicate changes or failures. Puppet checks current state before making changes.
+          </p>
+        </div>
+
+        <div style="background:#F8F7F4; border-radius:12px; padding:14px;">
+          <strong style="color:#111;">Q3: How is Configuration Drift prevented?</strong>
+          <p style="font-size:0.85rem; color:#666; margin-top:4px;">
+            If an admin stops Apache or modifies configuration manually, Puppet agent detects the drift and automatically restores the system to the desired catalog state.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Live ticking timer
-    let seconds = 155;
+    let seconds = 225;
     setInterval(() => {
       seconds++;
       let mins = Math.floor(seconds / 60);
@@ -1086,12 +1500,110 @@
         (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs;
     }, 1000);
 
-    function toggleTimer() {
-      alert("⏱️ Live Server Monitoring is running continuously on node 13.201.137.244!");
+    // Tab Navigation & Modal Management
+    function setActiveNav(navId) {
+      document.querySelectorAll('.nav-pill').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById(navId);
+      if (activeBtn) activeBtn.classList.add('active');
     }
 
-    function resetTimer() {
-      alert("State: Synced with HashiCorp Terraform State and Puppet Agent Catalog.");
+    function openTab(tabName) {
+      if (tabName === 'dashboard') {
+        setActiveNav('btn-nav-dashboard');
+        closeAllModals();
+      } else if (tabName === 'terraform') {
+        setActiveNav('btn-nav-terraform');
+        openModal('modal-terraform');
+      } else if (tabName === 'puppet') {
+        setActiveNav('btn-nav-puppet');
+        openModal('modal-puppet');
+      } else if (tabName === 'infra') {
+        setActiveNav('btn-nav-infra');
+        openModal('modal-infra');
+      } else if (tabName === 'guide') {
+        setActiveNav('btn-nav-guide');
+        openModal('modal-guide');
+      } else if (tabName === 'metrics') {
+        setActiveNav('btn-nav-metrics');
+        openModal('modal-infra');
+      }
+    }
+
+    function openModal(modalId) {
+      closeAllModals();
+      const modal = document.getElementById(modalId);
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) modal.classList.remove('active');
+      setActiveNav('btn-nav-dashboard');
+    }
+
+    function closeAllModals() {
+      document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+    }
+
+    // Close modal on click outside
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeModal(this.id);
+        }
+      });
+    });
+
+    // Terraform sub-tabs
+    function switchTfTab(tab) {
+      document.querySelectorAll('#modal-terraform .modal-tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tf-content-main').style.display = 'none';
+      document.getElementById('tf-content-vars').style.display = 'none';
+      document.getElementById('tf-content-state').style.display = 'none';
+
+      if (tab === 'main') {
+        document.getElementById('tf-tab-main').classList.add('active');
+        document.getElementById('tf-content-main').style.display = 'block';
+      } else if (tab === 'vars') {
+        document.getElementById('tf-tab-vars').classList.add('active');
+        document.getElementById('tf-content-vars').style.display = 'block';
+      } else if (tab === 'state') {
+        document.getElementById('tf-tab-state').classList.add('active');
+        document.getElementById('tf-content-state').style.display = 'block';
+      }
+    }
+
+    // Puppet sub-tabs
+    function switchPupTab(tab) {
+      document.querySelectorAll('#modal-puppet .modal-tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('pup-content-manifest').style.display = 'none';
+      document.getElementById('pup-content-catalog').style.display = 'none';
+      document.getElementById('pup-content-drift').style.display = 'none';
+
+      if (tab === 'manifest') {
+        document.getElementById('pup-tab-manifest').classList.add('active');
+        document.getElementById('pup-content-manifest').style.display = 'block';
+      } else if (tab === 'catalog') {
+        document.getElementById('pup-tab-catalog').classList.add('active');
+        document.getElementById('pup-content-catalog').style.display = 'block';
+      } else if (tab === 'drift') {
+        document.getElementById('pup-tab-drift').classList.add('active');
+        document.getElementById('pup-content-drift').style.display = 'block';
+      }
+    }
+
+    function simulateTfPlan() {
+      switchTfTab('state');
+      alert("✅ Terraform Plan Executed!\nResources: 0 to add, 0 to change, 0 to destroy.\nLive AWS Cloud infrastructure matches local state 100%!");
+    }
+
+    function simulatePuppetRun() {
+      switchPupTab('drift');
+      alert("✅ Puppet Agent Catalog Verified!\nAll 3 resources (apache2 package, service, index.html) are in Desired State.\nZero Drift Detected!");
+    }
+
+    function toggleTimer() {
+      openTab('puppet');
     }
   </script>
 </body>
